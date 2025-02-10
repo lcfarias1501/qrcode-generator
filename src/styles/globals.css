@@ -6,11 +6,14 @@
   --background: #ffffff;
   --foreground: #171717;
   --main: #63b3ed;
+  --main-hover: #4299e1;
+  --border: #e2e8f0;
+  --muted: #64748b;
 }
-
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+  background-size: 32px 32px;
 }
