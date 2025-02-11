@@ -26,11 +26,9 @@ interface rootLayoutProps {
 export default function RootLayout({ children }: rootLayoutProps) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}>
         <Navbar />
-        <main className="w-full">
+        <main className="w-full flex-grow">
           {children}
         </main>
         <Footer />
