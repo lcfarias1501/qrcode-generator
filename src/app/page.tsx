@@ -2,13 +2,12 @@
 import Link from 'next/link'
 import { RiQrCodeLine } from 'react-icons/ri'
 import { HiArrowRight } from 'react-icons/hi'
-import { BsLink45Deg, BsShieldCheck } from 'react-icons/bs'
-import { IoSpeedometerOutline } from 'react-icons/io5'
 import Pricing from '@/components/Pricing'
+import '../styles/HeroSection.css'
 
 export default function Home() {
   return (
-    <div className="py-12">
+    <div className="py-12 heroSection">
 
       {/* Hero Section */}
       <div className="text-center space-y-6 mb-16 h-[50vh] items-center justify-center flex flex-col px-2">

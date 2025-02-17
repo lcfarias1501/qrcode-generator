@@ -14,8 +14,7 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
-  background-size: 32px 32px;
+
 }
 
 main {

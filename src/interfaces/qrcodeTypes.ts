@@ -1,0 +1,1 @@
+export type qrcodeTypes = 'default' | 'label' | 'custom'
