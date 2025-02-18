@@ -1,6 +1,8 @@
 import React from 'react'
 import { HiCheck } from 'react-icons/hi'
 import { HiSparkles } from 'react-icons/hi2'
+import { redirect } from 'next/navigation'
+import Link from 'next/link'
 
 interface PricingTier {
     name: string
@@ -9,7 +11,7 @@ interface PricingTier {
     features: string[]
     buttonText: string
     isPopular?: boolean
-    onButtonPress?: 'generate' | 'buy_plan'
+    onButtonPress: '/generate' | '/buy_plan'
 }
 
 export default function Pricing() {
@@ -21,10 +23,10 @@ export default function Pricing() {
             features: [
                 "Generate unlimited QR codes",
                 "Download as PNG",
-                "Link tracking",
-                "Basic analytics"
+                "SSL Certification"
             ],
             buttonText: "Get Started",
+            onButtonPress: '/generate'
         },
         {
             name: "Pro",
@@ -32,15 +34,14 @@ export default function Pricing() {
             description: "Ideal for businesses and professionals",
             features: [
                 "Everything in Basic",
-                "Custom colors and logos",
+                "Custom colors",
+                "Custom logos",
                 "Multiple file formats",
-                "Advanced analytics",
-                "Priority support",
-                "Bulk generation",
-                "API access"
+                "Number of scans",
             ],
             buttonText: "Start Free Trial",
             isPopular: true,
+            onButtonPress: '/buy_plan'
         },
         {
             name: "Enterprise",
@@ -48,14 +49,18 @@ export default function Pricing() {
             description: "For large teams and organizations",
             features: [
                 "Everything in Pro",
+                "Advanced analytics",
                 "Team management",
-                "SLA guarantee",
                 "Dedicated support",
-                "Custom features"
+                "Custom QR Codes"
             ],
             buttonText: "Contact Sales",
+            onButtonPress: '/buy_plan'
         },
     ]
+
+    {/* redirect to a page */ }
+    const onButtonClick = (page: string) => redirect(`/${page}`)
 
     return (
         <div className='mb-10 px-4'>
@@ -114,18 +119,20 @@ export default function Pricing() {
                         </div>
 
                         {/* CTA Button */}
-                        <button
-                            className={`
-                                        w-full rounded-lg px-4 py-2.5 text-sm font-medium
-                                        ${tier.isPopular
-                                    ? 'bg-[var(--main)] text-white hover:bg-[var(--main-hover)]'
-                                    : 'border border-[var(--main)] text-[var(--main)] hover:bg-[var(--main)] hover:text-white'
-                                }
-                                        transition-colors duration-200
-                            `}
-                        >
-                            {tier.buttonText}
-                        </button>
+                        <Link href={tier.onButtonPress}>
+                            <button
+                                className={`
+                                w-full rounded-lg px-4 py-2.5 text-sm font-medium
+                                ${tier.isPopular
+                                        ? 'bg-[var(--main)] text-white hover:bg-[var(--main-hover)]'
+                                        : 'border border-[var(--main)] text-[var(--main)] hover:bg-[var(--main)] hover:text-white'
+                                    }
+                                transition-colors duration-200
+                                `}
+                            >
+                                {tier.buttonText}
+                            </button>
+                        </Link>
                     </div>
                 ))}
             </div>
